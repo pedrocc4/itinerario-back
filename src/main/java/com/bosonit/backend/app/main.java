@@ -19,8 +19,13 @@ public class main {
             personas.add(p);
         });
 
-        System.out.println(personas);
+        List<String> menores25 =
+                personas.stream()
+                        .filter(persona -> persona.getEdad() < 25 && persona.getEdad() != -1)
+                        .map(Persona::toString)
+                        .collect(Collectors.toList());
 
+        System.out.println(menores25);
 
     }
 }
