@@ -1,4 +1,4 @@
-package com.bosonit.backend.utils;
+package com.bosonit.backend.ejercicio2.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

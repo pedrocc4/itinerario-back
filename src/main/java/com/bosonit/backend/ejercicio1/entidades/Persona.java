@@ -1,4 +1,4 @@
-package com.bosonit.backend.entidades;
+package com.bosonit.backend.ejercicio1.entidades;
 
 import lombok.Getter;
 import lombok.Setter;

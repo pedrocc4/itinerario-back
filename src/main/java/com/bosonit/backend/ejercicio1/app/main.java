@@ -1,7 +1,7 @@
-package com.bosonit.backend.app;
+package com.bosonit.backend.ejercicio1.app;
 
-import com.bosonit.backend.entidades.Persona;
-import com.bosonit.backend.utils.Lector;
+import com.bosonit.backend.ejercicio1.entidades.Persona;
+import com.bosonit.backend.ejercicio1.utils.Lector;
 
 import java.util.ArrayList;
 import java.util.List;
