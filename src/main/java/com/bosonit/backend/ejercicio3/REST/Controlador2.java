@@ -23,14 +23,14 @@ public class Controlador2 {
     @Autowired
     Controlador1 controlador1;
 
-    @GetMapping("getPersona{nombre}")
+    @GetMapping("getPersona/{nombre}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Persona> verPersona(@PathVariable String nombre) {
         List<Persona> personas = servicio.getPersonas();
         log.info("Nombre de persona a buscar: " + nombre);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(personas.stream()
-                        .filter(persona -> persona.getNombre().contains(nombre))
+                        .filter(persona -> persona.getNombre().contentEquals(nombre))
                         .findFirst()
                         .orElseThrow(PersonaNoEncontrada::new));
     }

@@ -21,9 +21,9 @@ public class Controlador1 {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("addPersona")
     public ResponseEntity<Persona> crearPersona(
-            @RequestParam String nombre,
-            @RequestParam String poblacion,
-            @RequestParam Integer edad) {
+            @RequestHeader String nombre,
+            @RequestHeader String poblacion,
+            @RequestHeader Integer edad) {
 
         log.info("Nombre: " + nombre + ", " + "Poblacion: " + poblacion + ", " + "Edad: " + edad);
         return ResponseEntity.status(HttpStatus.CREATED)
