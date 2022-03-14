@@ -4,6 +4,7 @@ import com.bosonit.backend.ejercicio3.entidades.Ciudad;
 import com.bosonit.backend.ejercicio3.entidades.Persona;
 import com.bosonit.backend.ejercicio3.servicios.ServicioBosonit;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.logging.Logger;
 @RestController
 @RequestMapping("controlador1")
 public class Controlador1 {
+
     private final Logger log = Logger.getLogger(Controlador2.class.getName());
 
     @Autowired
