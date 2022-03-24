@@ -1,9 +1,3 @@
-## Implementación de Feign
+### Nivel avanzado
 
-En esta rama realizo una simple implmentación de Feign
-
-### Trello
-
-*No necesario*
-
-***NOTA***: *Este ejercicio está implementado sobre una versión incompleta del ejercicio anterior*
+En esta rama publicaré las implementaciones de nivel avanzado
