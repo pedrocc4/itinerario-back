@@ -5,10 +5,9 @@ import lombok.Data;
 
 import java.util.List;
 
-@Data
-public class ProfesorInputDTO {
-    private String comments;
-    private String branch;
-    private List<ProfesorInputDTO> estudiantes;
-    private Persona id_persona;
+public record ProfesorInputDTO(
+        String comments,
+        String branch,
+        List<ProfesorInputDTO> estudiantes,
+        Persona id_persona) {
 }
