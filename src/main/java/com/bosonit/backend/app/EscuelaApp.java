@@ -31,6 +31,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 @EnableFeignClients
        ({"com.bosonit.backend.app.feign"})
+//@EnableWebMvc
 public class EscuelaApp {
 
     public static void main(String[] args) {
