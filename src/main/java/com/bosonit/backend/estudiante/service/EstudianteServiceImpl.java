@@ -51,11 +51,11 @@ public class EstudianteServiceImpl implements EstudianteService {
 
         //comprobamos si id_persona esta asignado
         if (estudiante.getId_persona() != null) {
-            Persona persona = personaRepository.findById(estudianteInputDTO.getId_persona().getId())
+            Persona persona = personaRepository.findById(estudianteInputDTO.id_persona().getId())
                     .orElseThrow(
                             () -> new EntidadNoEncontrada(
                                     "Persona con id: "
-                                            + estudianteInputDTO.getId_persona()
+                                            + estudianteInputDTO.id_persona()
                                             + ", no encontrada"));
 
             if (persona.getTipoPersona() != null) {

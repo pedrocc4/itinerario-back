@@ -35,7 +35,7 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO) throws ConstraintViolationException {
-        if (repository.findByUsername(personaInputDTO.getUsuario()).isPresent())
+        if (repository.findByUsername(personaInputDTO.usuario()).isPresent())
             throw new PersonaYaRegistrada("Usuario ya registrado");
         return mapper.toDTO(repository.save(mapper.toEntity(personaInputDTO)));
     }
