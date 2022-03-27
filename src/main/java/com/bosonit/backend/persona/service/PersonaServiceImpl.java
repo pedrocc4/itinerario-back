@@ -5,6 +5,7 @@ import com.bosonit.backend.persona.domain.Persona;
 import com.bosonit.backend.persona.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.bosonit.backend.persona.infrastructure.controller.dto.output.PersonaOutputDTO;
 import com.bosonit.backend.persona.infrastructure.controller.mapper.PersonaMapper;
+import com.bosonit.backend.persona.repository.PersonaRepository;
 import com.bosonit.backend.persona.repository.PersonaRepositoryJPA;
 import com.bosonit.backend.profesor.infrastructure.controller.mapper.ProfesorMapper;
 import com.bosonit.backend.utils.exceptions.ConstraintViolationException;
@@ -15,6 +16,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -32,6 +34,9 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Autowired
     private ProfesorMapper profesorMapper;
+
+    @Autowired
+    private PersonaRepository personaRepository;
 
     @Override
     public PersonaOutputDTO addPersona(PersonaInputDTO personaInputDTO) throws ConstraintViolationException {
@@ -93,5 +98,12 @@ public class PersonaServiceImpl implements PersonaService {
                 .findById(id)
                 .orElseThrow(() -> new EntidadNoEncontrada(
                         ("Persona con id: " + id + ", no encontrado")))));
+    }
+
+    @Override
+    public List<PersonaOutputDTO> getPersonasFecha(PersonaInputDTO personaInputDTO, Date fecha, String tipoConsulta, String orden) {
+        return tipoConsulta.equals("inferior") ? mapper.toDTOList(personaRepository
+                .findPersonasFechaInferior(mapper.toEntity(personaInputDTO), fecha, orden)) : mapper.toDTOList(personaRepository
+                .findPersonasFechaSuperior(mapper.toEntity(personaInputDTO), fecha, orden));
     }
 }

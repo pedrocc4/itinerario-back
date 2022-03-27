@@ -3,6 +3,7 @@ package com.bosonit.backend.persona.service;
 import com.bosonit.backend.persona.infrastructure.controller.dto.input.PersonaInputDTO;
 import com.bosonit.backend.persona.infrastructure.controller.dto.output.PersonaOutputDTO;
 
+import java.util.Date;
 import java.util.List;
 
 public interface PersonaService {
@@ -17,4 +18,8 @@ public interface PersonaService {
     void actPersona(int id, PersonaInputDTO personaInputDTO);
 
     void delPersona(int id);
+
+    List<PersonaOutputDTO> getPersonasFecha(
+            PersonaInputDTO personaInputDTO, Date fecha,
+            String tipoConsulta, String orden);
 }

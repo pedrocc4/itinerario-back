@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Validated
 public interface PersonaMapper {
 
-    @Valid Persona toEntity(PersonaInputDTO personaDTO);
+    Persona toEntity(PersonaInputDTO personaDTO);
 
     PersonaOutputDTO toDTO(@Valid Persona persona);
 

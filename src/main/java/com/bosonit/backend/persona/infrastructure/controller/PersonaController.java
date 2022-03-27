@@ -10,6 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -74,5 +77,19 @@ public class PersonaController {
         service.delPersona(id);
         return ResponseEntity.ok().build();
 
+    }
+
+    @GetMapping("personaCriteria")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<PersonaOutputDTO>> getPersonasFecha(
+            @RequestBody PersonaInputDTO personaInputDTO,
+            @RequestParam String fecha,
+            @RequestParam(defaultValue = "superior", required = false) String tipoConsulta,
+            @RequestParam(defaultValue = "name", required = false) String orden) {
+        LocalDate date = LocalDate.parse(fecha);
+        log.info("Intentando buscar personas con datos: " + personaInputDTO
+                + ", con fecha " + tipoConsulta + " a: " + fecha + ", ordedas por: " + orden);
+        return ResponseEntity.status(HttpStatus.OK).body(service.getPersonasFecha(personaInputDTO,
+                Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()), tipoConsulta, orden));
     }
 }
