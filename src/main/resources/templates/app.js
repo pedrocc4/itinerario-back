@@ -31,13 +31,26 @@ function disconnect() {
     console.log("Disconnected");
 }
 
-function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify(
-        {
-            'nombre': $("#name").val(),
-            // 'file': $("#file").val()
-        }));
-}
+// function sendName() {
+//
+//     formId.onsubmit = async (e) => {
+//
+//         e.preventDefault();
+//         datos = new FormData();
+//         //datos.append('nombre', document.querySelector('#nombre'));
+//         datos.append('multipartFile', document.querySelector('#file'));
+//         //let multipartFile = document.querySelector('#file').value;
+//         let response = await fetch('http://localhost:8080/fichero', {
+//             method: 'POST',
+//             //headers: {'Content-Type': 'multipart/form-data'},
+//             body: new FormData(document.querySelector('#formId'))
+//         });
+//
+//         let aux = await response.json();
+//         console.log(aux.message);
+//
+//     };
+// }
 
 function showGreeting(message) {
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
@@ -53,9 +66,9 @@ $(function () {
     $("#disconnect").click(function () {
         disconnect();
     });
-    $("#send").click(function () {
-        sendName();
-    });
+    // $("#send").click(function () {
+    //     sendName();
+    // });
 });
 
 async function verFichero() {

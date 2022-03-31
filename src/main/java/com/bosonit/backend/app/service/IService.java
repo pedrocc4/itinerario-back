@@ -1,6 +1,7 @@
 package com.bosonit.backend.app.service;
 
 import com.bosonit.backend.app.domain.Fichero;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 

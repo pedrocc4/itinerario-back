@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Title </th>
+        <th> Author </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="fichero : ${ficheros}">
+<!--        <td><span th:text="${ficheros.}"> Title </span></td>-->
+        <td><span th:text="${fichero.nombre}"> Author </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

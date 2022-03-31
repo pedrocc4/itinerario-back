@@ -3,6 +3,7 @@ package com.bosonit.backend.app.service;
 import com.bosonit.backend.app.domain.Fichero;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
@@ -26,6 +27,7 @@ public class ServiceImpl implements IService {
     public void addFichero(Fichero fichero) {
         fichero.setFecha_subida(LocalDate.now());
         fichero.setId(id + ficheros.size());
+     //   fichero.setFile(document);
         ficheros.put(fichero.getId(), fichero);
         log.info(fichero + " agregado");
     }
